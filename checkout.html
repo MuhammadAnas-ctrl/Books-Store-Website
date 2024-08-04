@@ -28,14 +28,15 @@
             <input type="Address" id="adr" name="address" placeholder="542 W. 15th Street" required>
             <label for="city"><i class="fa fa-institution"></i> City</label>
             <input type="city" id="city" name="city" placeholder="New York" required>
-            </form>
           </div>
+            </form>
           
         </div>
         <label>
           <input type="checkbox" checked="checked" name="sameadr"> Shipping address same as billing
         </label>
-        <button class="btn" id="btn" onclick="SetInStorage()">Submit</button>
+        <button type="submit" class="btn" id="btn" onclick="SetInStorage()">Submit</button>
+
     </div>
   </div>
 </div>
@@ -47,19 +48,15 @@
 <script src="https://smtpjs.com/v3/smtp.js"></script>
 <script src="https://kit.fontawesome.com/f497a2fd00.js" crossorigin="anonymous"></script>
 <script>
-    function SetInStorage(e) {
-//   e.preventDeafult();
+    function SetInStorage() {
+  // e.preventDeafult();
   let name = document.getElementById("fname");
   let email = document.getElementById("email");
   let phone = document.getElementById("phone");
   let address = document.getElementById("adr");
   let city = document.getElementById("city");
   let btn = document.getElementById("btn");
-  let input = document.getElementsByTagName("input");
 
-  if(input === "" || input == null){
-    alert("Please fill in all fields");
-  }
   localStorage.setItem("name", name.value);
   localStorage.setItem("email", email.value);
   localStorage.setItem("phone", phone.value);
