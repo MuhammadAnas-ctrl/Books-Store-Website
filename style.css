@@ -1,0 +1,223 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    box-sizing: border-box;
+}
+body{
+    background-color: #fff;
+}
+.container{
+    margin: auto;
+    transition: 0.5s;
+    width: 900px;
+    max-width: 90vw;
+}
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 80px;
+    height: 80px;
+}
+h2{
+    cursor: pointer;
+}
+#carticon{
+    cursor: pointer;
+}
+.shoppingBasket{
+    position: relative;
+}
+
+.shoppingBasket .quantity{
+    background-color: red;
+    color: #fff;
+    border-radius: 50%;
+    padding: 0 8px;
+    position: absolute;
+    top: -15px;
+    left: 20px;
+}
+img{
+    width: 50px;
+}
+
+.products{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 25px;
+    row-gap: 25px;
+    margin: 10px 30px;
+    padding: 0 55px;
+}
+
+.products .item{
+    text-align: center;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 0px 50px #757676;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+.products .item img{
+    height: 130px;
+    width: 115px;
+    filter: drop-shadow(10px 10px 5px #d3d3d3);
+}
+
+.products .item img:hover,.products .item img:active{
+    scale: 1.2;
+    transition: 0.5s;
+}
+.products .item .price{
+    margin: 10px;
+}
+.products .item button{
+    background-color: #343432;
+    color: #fff;
+    padding: 5px 15px;
+    border-radius: 20px;
+    width: 150px;
+    height: 35px;
+    margin-top: 10px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+.products .item button:hover,.products .item button:active{
+    background-color: #6e6e6e;
+    scale: 1.1;
+    transition: 0.5s;
+}
+
+.cart{
+    position: fixed;
+    top: 0;
+    left: 100%;
+    width: 400px;
+    background-color: #453e3b;
+    height: 100vh;
+    transition: 0.5s;
+}
+.cart h3{
+    font-weight: 100;
+    text-align: center;
+    color: #fff;
+    border-bottom: 2px solid grey;
+    padding: 10px;
+    margin-top: 10px;
+}
+.cart .checkout{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2 , 1fr);
+}
+.cart .checkout div{
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s ease;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: beige;
+}
+.cart .checkout div:hover,.cart .checkout div:active{
+    background-color: rgb(255, 255, 181);
+}
+.cart .checkout div:nth-child(2){
+    background-color: #000;
+    transition: 0.5s ease;
+    color: #fff;
+}
+.cart .checkout div:nth-child(2):hover,.cart .checkout div:nth-child(2):active{
+    background-color: #222;
+}
+
+.active .cart{
+    left: calc(100% - 400px);
+}
+.fa-star{
+    color: #ff9c1a;
+    /* margin-top: 5px; */
+}
+.productList{
+    padding: 15px;
+    height: auto;
+}
+
+.productList li{
+    display: grid;
+    grid-template-columns: 100px repeat(3,1fr);
+    color: #fff;
+    row-gap: 10px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid;
+}
+.productList li img{
+    width: 50px;
+    padding: 5px 5px;
+    background-color: #fff;
+}
+.productList li div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.productList li button{
+    width: 25px;
+    transition: 0.5s ease;
+    height: 25px;
+    border-radius: 50%;
+    background-color: aqua;
+    color: #000000;
+    border: none;
+    outline: none;
+}
+.productList li button:hover,.productList li button:active{
+    background-color: rgb(0, 175, 175);
+}
+.productList li .count{
+    padding: 10px;
+}
+.checkk{
+    width: 100%;
+    height: 45px;
+    border-radius: 15px;
+    /* border: 2px solid #adadad; */
+    /* box-shadow: 3px 1px 8px red; */
+    transition: 0.5s ease;
+    outline: none;
+    border: none;
+    font-size: 20px;
+    background-color: #535353;
+    color: #fff;
+    cursor: pointer;
+}
+
+.checkk:active,.checkk:hover{
+    background-color: #2b2b2b;
+}
+@media (max-width:550px){
+    header{
+        padding: 25px;
+    }
+    .products{
+        display: block;
+        padding: 5px;
+    }
+
+    .products .item{
+        margin-bottom: 20px;
+    }
+
+}
+@media (max-width:770px) {
+    .products{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
