@@ -52,7 +52,8 @@ const body = document.querySelector("body"),
   productList = document.querySelector(".productList"),
   quantity = document.querySelector(".quantity"),
   total = document.querySelector(".total"),
-  checkk = document.querySelector(".checkk");
+  checkk = document.querySelector(".checkk"),
+  Para = document.querySelector(".Para");
 
 let checkOutList = []
 
@@ -141,3 +142,8 @@ function changeQuantity(key,quantity){
     }
     reloadCart()
 }
+
+let date = new Date();
+let year = date.getFullYear();
+
+Para.innerHTML = `&copy; ${year} The Book Shop, Inc. All rights reserved.`
