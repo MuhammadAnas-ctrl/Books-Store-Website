@@ -491,9 +491,9 @@ footer h2{
     color: #fff;
     padding-left: 10px;
 }
-.footer-col input:nth-child(1){
+/* .footer-col input:nth-child(1){
     margin-top: 20px;
-}
+} */
 .footer-col input:hover{
     border: 1px solid #0a31a3;
 }
