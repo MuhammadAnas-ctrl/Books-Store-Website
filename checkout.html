@@ -77,18 +77,18 @@ let Id_Cd = `Customers ID : ${Id_Val}`
 
 console.log(Id_Cd)
 Email.send({
-  SecureToken: "072ae52d-3ecb-4597-95b1-d30da9a6b717",
+  SecureToken: "6925d185-3a88-49b9-8d58-2232738695fa",
   To: "flashycoderch@gmail.com",
   From: "flashycoderch@gmail.com",
   Subject: `${localStorage.getItem("name")} has Order...`,
   Body: `
   <h1>Order Details</h1>
-  <p>${Id_Cd}</p>,
-  Name : ${getname} <br>,
-  Email : ${getemail} <br>,
-  Phone-No : ${getphone} <br>,
-  Address : ${getadr} <br>,
-  City : ${getcity} <br>,
+  <h3>${Id_Cd}</h3>,
+  <h2>Name : ${getname}</h2>,
+  <h2>Email : ${getemail}</h2>,
+  <h2>Phone-No : ${getphone}</h2>,
+  <h2>Address : ${getadr}</h2>,
+  <h2>City : ${getcity}</h2>,
   `,
 }).then((message) =>{
     if(message == "OK"){

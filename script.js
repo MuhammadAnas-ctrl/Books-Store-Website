@@ -39,7 +39,7 @@ let ArrProducts = [
     id: 6,
     name: "ANGULAR",
     image: "img6.png",
-    price: "4500",
+    price: "4000",
     rating: 3,
   },
 ];
@@ -143,7 +143,41 @@ function changeQuantity(key,quantity){
     reloadCart()
 }
 
-let date = new Date();
-let year = date.getFullYear();
+function Subscribee(){
+const Sub = document.querySelector("#Subscribe");
+const name = document.querySelector("#Name");
 
-Para.innerHTML = `&copy; ${year} The Book Shop, Inc. All rights reserved.`
+let code_val = Math.floor(Math.random() * 10000);
+let code = `Customers Id is : ${code_val}`
+
+  Email.send({
+    SecureToken: "6925d185-3a88-49b9-8d58-2232738695fa",
+    To: "flashycoderch@gmail.com",
+    From: "flashycoderch@gmail.com",
+    Subject: `${Sub.value} has Subscribed`,
+    Body: `
+    <h3>${code}</h3><br><br>
+    <h3>A person has Subscribed you</h3> <br>
+    <h2>Name: ${Sub.value}</h2> <br>
+    <h2>Email : ${name.value}</h2>
+    `,
+  }).then((message) =>{
+    if(message === "OK"){
+      alert("Successfully Subscribed")
+    }
+    else{
+      alert("Failed to Subscribe")
+    }
+  });
+
+  // Email.send({
+  //   Host: "smtp.elasticemail.com",
+  //   Username: "flashycoderch@gmail.com",
+  //   Password: "17E02C5E468429AD15A427B9A06DE5F72A15",
+  //   To: "flashycoderch@gmail.com",
+  //   From: "flashycoderch@gmail.com",
+  //   Subject: "This is the subject",
+  //   Body: "And this is the body",
+  // }).then((message) => alert(message));
+}
+
