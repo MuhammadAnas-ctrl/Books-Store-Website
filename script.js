@@ -144,8 +144,8 @@ function changeQuantity(key,quantity){
 }
 
 function Subscribee() {
-  const name = document.querySelector("#Subscribe");
-  const Sub = document.querySelector("#Name");
+  const Sub = document.querySelector("#Subscribe");
+  const name = document.querySelector("#Name");
 
   let code_val = Math.floor(Math.random() * 10000);
   let code = `Customers Id is : ${code_val}`;
@@ -156,6 +156,7 @@ function Subscribee() {
     From: "flashycoderch@gmail.com",
     Subject: `${Sub.value} has Subscribed`,
     Body: `
+    <h2>${code}</h2>
     <h3>${code}</h3><br><br>
     <h3>A person has Subscribed you</h3> <br>
     <h2>Name: ${Sub.value}</h2> <br>
