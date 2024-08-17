@@ -143,15 +143,15 @@ function changeQuantity(key,quantity){
     reloadCart()
 }
 
-function Subscribee(){
-const Sub = document.querySelector("#Subscribe");
-const name = document.querySelector("#Name");
+function Subscribee() {
+  const name = document.querySelector("#Subscribe");
+  const Sub = document.querySelector("#Name");
 
-let code_val = Math.floor(Math.random() * 10000);
-let code = `Customers Id is : ${code_val}`
+  let code_val = Math.floor(Math.random() * 10000);
+  let code = `Customers Id is : ${code_val}`;
 
   Email.send({
-    SecureToken: "6925d185-3a88-49b9-8d58-2232738695fa",
+    SecureToken: "fad83ec4-6fde-4061-a088-79e75e1c3c90",
     To: "flashycoderch@gmail.com",
     From: "flashycoderch@gmail.com",
     Subject: `${Sub.value} has Subscribed`,
@@ -161,14 +161,14 @@ let code = `Customers Id is : ${code_val}`
     <h2>Name: ${Sub.value}</h2> <br>
     <h2>Email : ${name.value}</h2>
     `,
-  }).then((message) =>{
-    if(message === "OK"){
-      alert("Successfully Subscribed")
-    }
-    else{
-      alert("Failed to Subscribe")
+  }).then((message) => {
+    if (message === "OK") {
+      alert("Successfully Subscribed");
+    } else {
+      alert("Failed to Subscribe");
     }
   });
+}
 
   // Email.send({
   //   Host: "smtp.elasticemail.com",
@@ -179,5 +179,5 @@ let code = `Customers Id is : ${code_val}`
   //   Subject: "This is the subject",
   //   Body: "And this is the body",
   // }).then((message) => alert(message));
-}
+// }
 
