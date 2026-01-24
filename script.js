@@ -104,33 +104,39 @@ function addtoCart(Id){
     reloadCart()
 }
 
-function reloadCart(){
+function reloadCart() {
   productList.innerHTML = "";
-
   let count = 0;
   let totalPrice = 0;
 
-  checkOutList.forEach((item,key)=>{
+  checkOutList.forEach((item, key) => {
+    if(item != null){
+      totalPrice += item.price * item.quantity;
+      count += item.quantity;
 
-    totalPrice+= parseInt(item.price*item.quantity)
+      let li = document.createElement("li");
+      li.innerHTML = `
+        <img src="images/${item.image}" />
+        <div class="name">${item.name}</div>
+        <div class="quantityContainer">
+          <button onclick="changeQuantity(${key},${item.quantity - 1})">-</button>
+          <div class="quantity">${item.quantity}</div>
+          <button onclick="changeQuantity(${key},${item.quantity + 1})">+</button>
+        </div>
+        <button class="removeBtn" onclick="removeItem(${key})">🗑️</button>
+      `;
+      productList.appendChild(li);
+    }
+  });
 
-    count +=item.quantity;
-    console.log(item)
-    let li = document.createElement("li")
-    li.innerHTML = `
-    <img src = "images/${item.image}"/>
-    <div>${item.name}</div>
-    <div>${item.price}</div>
-    <div>
-    <button onclick="changeQuantity(${key},${item.quantity-1})">-</button>
-    <div class="count" >${item.quantity}</div>
-    <button onclick="changeQuantity(${key},${item.quantity+1})">+</button>
-    </div>
-    `;
-    productList.appendChild(li)
-  })
-total.innerHTML = `<small>Subtotal (${count} items) ₹</small>`+totalPrice;
+  total.innerHTML = `<small>Subtotal (${count} items) ₹</small>` + totalPrice;
   quantity.innerHTML = count;
+}
+
+// Remove item
+function removeItem(key){
+  delete checkOutList[key];
+  reloadCart();
 }
 
 function changeQuantity(key,quantity){
