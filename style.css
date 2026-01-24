@@ -143,10 +143,12 @@ body.active .cartOverlay {
 .productList li {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 10px 0;
+  justify-content: flex-start;
+  padding: 10px 5px;
   border-bottom: 1px solid #eee;
   gap: 10px;
+  min-height: 60px; /* ensures enough space for all elements */
+  overflow: hidden;
 }
 
 .productList img {
@@ -158,17 +160,19 @@ body.active .cartOverlay {
 }
 
 .productList .name {
-  flex: 2;
+  flex: 1;                     /* take remaining space */
   font-size: 14px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  white-space: nowrap;          /* single line */
+  overflow: hidden;             /* hide overflow */
+  text-overflow: ellipsis;      /* show "..." if too long */
 }
 
 .productList .quantityContainer {
   display: flex;
   align-items: center;
   gap: 5px;
+  min-width: 80px;             /* ensures buttons visible */
+  justify-content: center;
 }
 
 .productList .quantityContainer button {
@@ -194,8 +198,9 @@ body.active .cartOverlay {
   padding: 5px 8px;
   cursor: pointer;
   border-radius: 4px;
-  flex-shrink: 0;
+  flex-shrink: 0;  /* prevent shrinking */
 }
+
 
 .cartFooter {
   padding: 15px;
