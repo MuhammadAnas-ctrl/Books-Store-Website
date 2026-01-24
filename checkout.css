@@ -206,8 +206,8 @@ span.price {
   background-color: red;
   border: none;
   color: white;
-  font-size: 14px;
-  padding: 5px 8px;
+  font-size: 12px;
+  padding: 5px 5px;
   cursor: pointer;
   border-radius: 4px;
   flex: 1;
