@@ -232,4 +232,27 @@ span.price {
   font-weight: bold;
   text-align: right;
 }
+.btn-whatsapp {
+  background-color: #25D366; /* WhatsApp green */
+  color: white;
+  padding: 15px 25px;       /* bigger button */
+  font-size: 18px;          /* larger text */
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;              /* full width */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;                /* space if you want an icon */
+}
+
+.btn-whatsapp:hover {
+  background-color: #1ebe5d; /* slightly darker green on hover */
+  transform: translateY(-2px); /* subtle lift effect */
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
 
