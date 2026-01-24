@@ -10,6 +10,7 @@
     
 
 <h1>Checkout Form</h1>
+    <h3>Complete Your Order On WhatsApp📦</h3>
 <div class="row">
   <div class="col-75">
     <div class="container">
@@ -19,22 +20,20 @@
             <h3>Billing Address</h3>
             <form>
             <label for="fname"><i class="fa fa-user"></i> Full Name</label>
-            <input type="name" id="fname" name="firstname" placeholder="John M. Doe" required>
-            <label for="email"><i class="fa fa-envelope"></i> Email</label>
-            <input type="email" id="email" name="email" placeholder="john@example.com" required>
+            <input type="name" id="name" name="firstname" placeholder="John M. Doe" required>
             <label for="phone"><i class="fa fa-institution"></i> Phone</label>
             <input type="phone" id="phone" name="city" placeholder="Phone Number" required>
             <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
-            <input type="Address" id="adr" name="address" placeholder="542 W. 15th Street" required>
+            <input type="Address" id="address" name="address" placeholder="542 W. 15th Street" required>
             <label for="city"><i class="fa fa-institution"></i> City</label>
             <input type="city" id="city" name="city" placeholder="New York" required>
           </div>
             </form>
-          
+
+         <h2>Your Cart</h2>
+           <div id="cartItems"></div>
+            
         </div>
-        <label>
-          <input type="checkbox" checked="checked" name="sameadr"> Shipping address same as billing
-        </label>
         <button type="submit" class="btn" id="btn" onclick="SetInStorage()">Submit</button>
 
     </div>
@@ -50,7 +49,7 @@
 <script>
     function SetInStorage() {
   // e.preventDeafult();
-  let name = document.getElementById("fname");
+  let name = document.getElementById("name");
   let email = document.getElementById("email");
   let phone = document.getElementById("phone");
   let address = document.getElementById("adr");
@@ -72,37 +71,5 @@ let getphone = localStorage.getItem("phone")
 let getadr = localStorage.getItem("adr")
 let getcity = localStorage.getItem("city")
 
-let Id_Val = Math.floor(Math.random()*10000)
-let Id_Cd = `Customers ID : ${Id_Val}`
-
-console.log(Id_Cd)
-Email.send({
-  SecureToken: "fad83ec4-6fde-4061-a088-79e75e1c3c90",
-  To: "flashycoderch@gmail.com",
-  From: "flashycoderch@gmail.com",
-  Subject: `${localStorage.getItem("name")} has Order...`,
-  Body: `
-  <h1>Order Details</h1>
-  <h3>${Id_Cd}</h3>,
-  <h2>Name : ${getname}</h2>,
-  <h2>Email : ${getemail}</h2>,
-  <h2>Phone-No : ${getphone}</h2>,
-  <h2>Address : ${getadr}</h2>,
-  <h2>City : ${getcity}</h2>,
-  `,
-}).then((message) =>{
-    if(message == "OK"){
-        alert("Your Oder Has Been Made SuccessFull")
-  window.open("index.html", "_self")
-        
-    }
-    
-    else{
-        alert("Error")
-    }
-});
-}
-
-</script>
 </body>
 </html>
