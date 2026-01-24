@@ -1,45 +1,32 @@
-// Load cart from localStorage
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
-let cartItemsDiv = document.getElementById("cartItems");
+// Get cart from localStorage
+let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
 
-// Show cart items
-function showCart() {
-  cartItemsDiv.innerHTML = "";
+// Elements
+const checkoutList = document.querySelector(".checkoutList"); // ul or div to show cart
+const checkoutTotal = document.querySelector(".checkoutTotal"); // element to show total
 
-  cart.forEach(item => {
-    cartItemsDiv.innerHTML += `
-      <p>${item.name} — Qty: ${item.quantity}</p>
-    `;
+function loadCheckout() {
+  checkoutList.innerHTML = "";
+  let totalPrice = 0;
+  let count = 0;
+
+  cartItems.forEach((item) => {
+    if(item != null){
+      totalPrice += item.price * item.quantity;
+      count += item.quantity;
+
+      const li = document.createElement("li");
+      li.innerHTML = `
+        <img src="images/${item.image}" />
+        <div>${item.name}</div>
+        <div>₹${item.price}</div>
+        <div>Quantity: ${item.quantity}</div>
+      `;
+      checkoutList.appendChild(li);
+    }
   });
+
+  checkoutTotal.innerHTML = `<strong>Subtotal (${count} items): ₹${totalPrice}</strong>`;
 }
-showCart();
 
-// WhatsApp Order Submit
-document.getElementById("orderForm").addEventListener("submit", function(e) {
-  e.preventDefault();
-
-  let name = document.getElementById("name").value;
-  let phone = document.getElementById("phone").value;
-  let address = document.getElementById("address").value;
-  let city = document.getElementById("city").value;
-
-  let message = `Hello, my name is ${name}.%0A%0A`;
-  message += `I want to order:%0A`;
-
-  cart.forEach(item => {
-    message += `- ${item.name} (Qty: ${item.quantity})%0A`;
-  });
-
-  message += `%0AAddress: ${address}, ${city}`;
-  message += `%0APhone: ${phone}`;
-
-  let whatsappNumber = "03294847025"; // <-- PUT CLIENT NUMBER HERE
-
-  window.open(`https://wa.me/${whatsappNumber}?text=${message}`, "_blank");
-});
-
-
-
-
-
-
+loadCheckout();
