@@ -55,7 +55,27 @@ const body = document.querySelector("body"),
   checkk = document.querySelector(".checkk"),
   Para = document.querySelector(".Para");
 
-let checkOutList = []
+let checkOutList = JSON.parse(localStorage.getItem("cartItems")) || [];
+function saveCart() {
+  localStorage.setItem("cartItems", JSON.stringify(checkOutList));
+}
+
+function updateCheckoutButton() {
+  if (quantity.innerHTML == 0) {
+    checkk.disabled = true;
+    checkk.style.opacity = "0.5";
+    checkk.style.cursor = "not-allowed";
+  } else {
+    checkk.disabled = false;
+    checkk.style.opacity = "1";
+    checkk.style.cursor = "pointer";
+  }
+}
+
+
+
+
+
 
 shoppingBasket.onclick=()=>{
   body.classList.add("active")
@@ -92,17 +112,16 @@ onInIt()
 
 
 function addtoCart(Id){
-    // console.log(ArrProducts[Id]);
-    if(checkOutList[Id] == null){
-        checkOutList[Id] = ArrProducts[Id];
+  if(checkOutList[Id] == null){
+    checkOutList[Id] = ArrProducts[Id];
+    checkOutList[Id].quantity = 1;
+  } else {
+    checkOutList[Id].quantity += 1;
+  }
 
-        checkOutList[Id].quantity = 1
-    }
-    else{
-      checkOutList[Id].quantity +=1
-    }
-    reloadCart()
+  reloadCart();
 }
+
 
 function reloadCart() {
   productList.innerHTML = "";
@@ -110,7 +129,7 @@ function reloadCart() {
   let totalPrice = 0;
 
   checkOutList.forEach((item, key) => {
-    if(item != null){
+    if (item != null) {
       totalPrice += item.price * item.quantity;
       count += item.quantity;
 
@@ -118,11 +137,13 @@ function reloadCart() {
       li.innerHTML = `
         <img src="images/${item.image}" />
         <div class="name">${item.name}</div>
+
         <div class="quantityContainer">
-          <button onclick="changeQuantity(${key},${item.quantity - 1})">-</button>
+          <button onclick="changeQuantity(${key}, ${item.quantity - 1})">-</button>
           <div class="quantity">${item.quantity}</div>
-          <button onclick="changeQuantity(${key},${item.quantity + 1})">+</button>
+          <button onclick="changeQuantity(${key}, ${item.quantity + 1})">+</button>
         </div>
+
         <button class="removeBtn" onclick="removeItem(${key})">🗑️</button>
       `;
       productList.appendChild(li);
@@ -131,7 +152,11 @@ function reloadCart() {
 
   total.innerHTML = `<small>Subtotal (${count} items) ₹</small>` + totalPrice;
   quantity.innerHTML = count;
+
+  saveCart();
+  updateCheckoutButton();
 }
+
 
 // Remove item
 function removeItem(key){
@@ -139,22 +164,40 @@ function removeItem(key){
   reloadCart();
 }
 
-function changeQuantity(key,quantity){
-  if(quantity == 0){
-    delete checkOutList[key];
-    }
-    else{
-      checkOutList[key].quantity=quantity;
-    }
-    reloadCart()
-}
-checkk.addEventListener("click", () => {
-  // Save cart to localStorage
-  localStorage.setItem("cartItems", JSON.stringify(checkOutList));
 
-  // Go to checkout page
+function changeQuantity(key, quantity){
+  if(quantity <= 0){
+    delete checkOutList[key];
+  } else {
+    checkOutList[key].quantity = quantity;
+  }
+  reloadCart();
+}
+
+checkk.addEventListener("click", () => {
+  if (quantity.innerHTML == 0) {
+    alert("🛒 Cart is empty! Please add items first.");
+    return;
+  }
+
+  // Cart already saved via reloadCart()
   window.open("checkout.html", "_self");
 });
+
+
+
+window.addEventListener("DOMContentLoaded", () => {
+  reloadCart();
+});
+
+
+
+
+
+
+
+
+
 
 
 
