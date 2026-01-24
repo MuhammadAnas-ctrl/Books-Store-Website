@@ -191,12 +191,14 @@ body.active .cartOverlay {
 .productList .name {
   font-size: 14px;
   font-weight: 600;
-  margin-left: 6px;
-  white-space: nowrap;
+  margin-left: 8px;
+  flex: 1;
     color:black;
+
+  /* long name safety */
+  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 110px; 
 }
 
 
