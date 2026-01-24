@@ -143,6 +143,13 @@ function changeQuantity(key,quantity){
     reloadCart()
 }
 
+checkk.addEventListener("click", () => {
+  // Save cart to localStorage
+  localStorage.setItem("cartItems", JSON.stringify(checkOutList));
+
+  // Go to checkout page
+  window.open("checkout.html", "_self");
+});
 
 
   // Email.send({
