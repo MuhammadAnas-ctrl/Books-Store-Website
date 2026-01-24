@@ -195,11 +195,6 @@ body.active .cartOverlay {
   margin-left: 8px;
   color:black;
   flex: 1;
-
-  /* long name handling */
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 
