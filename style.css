@@ -181,7 +181,8 @@ body.active .cartOverlay {
     padding: 12px 8px;
     color: black;
     border-bottom: 1px solid #eee;
-    gap: 12px; /* Adds consistent spacing between all elements in the row */
+    width: 100%; /* Ensure it takes full width */
+    box-sizing: border-box; /* Adds consistent spacing between all elements in the row */
 }
 
 /* 3. Book Image */
@@ -214,9 +215,8 @@ body.active .cartOverlay {
     display: flex;
     align-items: center;
     gap: 8px;
-    color: black;
-    /* Remove margin-left: auto; -> This was forcing it to the far right */
-    flex-shrink: 0;
+    flex-shrink: 0;      /* Prevents buttons from getting squashed */
+    margin-left: auto;
 }
 
 /* 6. Buttons & Remove Button */
