@@ -52,6 +52,7 @@ img{
     grid-template-columns: repeat(3, 1fr);
     column-gap: 25px;
     row-gap: 25px;
+    color: black;
     margin: 10px 30px;
     padding: 0 55px;
 }
