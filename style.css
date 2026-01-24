@@ -192,7 +192,7 @@ body.active .cartOverlay {
 .productList .name {
   font-size: 14px;
   font-weight: 600;
-  
+  marginleft:-10px;
   color:black;
   flex: 1;
 
