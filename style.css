@@ -166,6 +166,7 @@ body.active .cartOverlay {
   flex: 1;
   overflow-y: auto;
   padding: 10px;
+    color:black;
   list-style: none;
 }
 
@@ -203,6 +204,7 @@ body.active .cartOverlay {
   display: flex;
   align-items: center;
   gap: 6px;
+  color : black;
   margin-left: auto;
 }
 
