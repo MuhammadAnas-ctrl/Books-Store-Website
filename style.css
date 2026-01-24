@@ -115,6 +115,7 @@ img{
   width: 100%;
   max-width: 420px;
   height: 100vh;
+    color: black;
   display: flex;
   flex-direction: column;
 }
@@ -160,11 +161,6 @@ body.active .cartOverlay {
   margin-bottom: 10px;
 }
 
-.productList {
-  flex: 1;
-  overflow-y: auto;
-  padding-left:10px;
-}
 
 .productList {
   flex: 1;
@@ -194,6 +190,7 @@ body.active .cartOverlay {
   flex: 1;
   font-size: 14px;
   font-weight: 600;
+    color: black;
   word-break: break-word;
 }
 
