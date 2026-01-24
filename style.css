@@ -101,7 +101,7 @@ img{
     left: 100%;
     width: 400px;
     background-color: #453e3b;
-    height: 90vh;
+    height: 100vh;
     transition: 0.5s;
 }
 .cart h3{
@@ -215,7 +215,7 @@ footer{
     height: 100px;
     align-items: center;
     justify-content: space-around;
-    margin-top: 50px;
+    margin-top: 80px;
     padding: 20px 20px;
    
 }
