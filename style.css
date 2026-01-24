@@ -172,26 +172,29 @@ body.active .cartOverlay {
 .productList li {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 10px 0;
-    color:black;
+  padding: 12px 8px;
+    color: black;
   border-bottom: 1px solid #eee;
+  gap: 8px;
 }
 
 /* image */
-.productList img {
-  width: 55px;
-  height: 70px;
+.productList li img {
+  width: 50px;
+  height: 65px;
   object-fit: contain;
+  flex-shrink: 0;
 }
-
 /* name */
 .productList .name {
-  flex: 1;
   font-size: 14px;
   font-weight: 600;
-    color: black;
-  word-break: break-word;
+  margin-left: 6px;
+  white-space: nowrap;
+    color:black;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 110px; 
 }
 
 
@@ -199,20 +202,18 @@ body.active .cartOverlay {
 .productList .quantityContainer {
   display: flex;
   align-items: center;
-    color: black;
-  gap: 5px;
-  min-width: 80px;             /* ensures buttons visible */
-  justify-content: center;
+  gap: 6px;
+  margin-left: auto;
 }
 
 .productList .quantityContainer button {
-  background-color: #007bff;
-  color: white;
+  width: 32px;
+  height: 32px;
+  background: #007bff;
+  color: #fff;
   border: none;
-  padding: 2px 8px;
-  font-size: 14px;
-  cursor: pointer;
-  border-radius: 4px;
+  border-radius: 6px;
+  font-size: 16px;
 }
 
 .productList .quantityContainer .quantity {
@@ -221,16 +222,15 @@ body.active .cartOverlay {
 }
 
 .productList .removeBtn {
-  background-color: red;
-  border: none;
+  background: red;
   color: white;
-  font-size: 14px;
-  padding: 5px 8px;
-  cursor: pointer;
-  border-radius: 4px;
-  flex-shrink: 0;  /* prevent shrinking */
+  border: none;
+  width: 34px;
+  height: 34px;
+  border-radius: 6px;
+  margin-left: 6px;
+  font-size: 16px;
 }
-
 
 .cartFooter {
   padding: 15px;
