@@ -149,17 +149,13 @@ function changeQuantity(key,quantity){
     reloadCart()
 }
 checkk.addEventListener("click", () => {
-  // Check if cart has items
-  const cartHasItems = checkOutList.some(item => item != null);
+  // Save cart to localStorage
+  localStorage.setItem("cartItems", JSON.stringify(checkOutList));
 
-  if (!cartHasItems) {
-    alert("Your cart is empty! Please add some books before checkout.");
-    return; // stop execution, checkout won't open
-  }
-
-  // Cart has items, open checkout page
+  // Go to checkout page
   window.open("checkout.html", "_self");
 });
+
 
 
 
