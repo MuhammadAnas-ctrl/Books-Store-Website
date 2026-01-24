@@ -172,6 +172,7 @@ body.active .cartOverlay {
 .productList .quantityContainer {
   display: flex;
   align-items: center;
+    color: black;
   gap: 5px;
   min-width: 80px;             /* ensures buttons visible */
   justify-content: center;
