@@ -125,6 +125,7 @@ span.price {
 .checkoutList {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
 .checkoutList li {
@@ -140,15 +141,59 @@ span.price {
   height: 70px;
   object-fit: cover;
   margin-right: 20px;
+  border-radius: 4px;
 }
 
-.checkoutList div {
-  margin-right: 20px;
+.checkoutList .name {
   font-size: 16px;
+  margin-right: 20px;
+  flex: 1;
+}
+
+.checkoutList .quantityContainer {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.checkoutList .quantityContainer button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 2px 8px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.checkoutList .quantityContainer button:hover {
+  opacity: 0.8;
+}
+
+.checkoutList .quantityContainer .quantity {
+  margin: 0 8px;
+  font-size: 16px;
+  min-width: 20px;
+  text-align: center;
+}
+
+.checkoutList .removeBtn {
+  background-color: red;
+  border: none;
+  color: white;
+  font-size: 14px;
+  padding: 5px 8px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.checkoutList .removeBtn:hover {
+  opacity: 0.8;
 }
 
 .checkoutTotal {
   margin-top: 20px;
   font-size: 18px;
   font-weight: bold;
+  text-align: right;
 }
