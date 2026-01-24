@@ -54,6 +54,78 @@ loadCheckout();
 
 const placeOrderBtn = document.getElementById("placeOrderBtn");
 
+
+
+function placeOrder() {
+  let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+  // 🛑 If cart is empty
+  if (cartItems.length === 0) {
+    alert("🛒 Your cart is empty!");
+    return;
+  }
+
+  // Customer details
+  let name = document.getElementById("name").value.trim();
+  let phone = document.getElementById("phone").value.trim();
+  let address = document.getElementById("address").value.trim();
+  let city = document.getElementById("city").value.trim();
+
+  if (!name || !phone || !address || !city) {
+    alert("⚠️ Please fill all details");
+    return;
+  }
+
+  // Generate Customer ID
+  let customerId = "ORD" + Date.now();
+
+  let message = `🛍️ *New Order Received*\n\n`;
+  message += `🆔 Order ID: ${customerId}\n`;
+  message += `👤 Name: ${name}\n`;
+  message += `📞 Phone: ${phone}\n`;
+  message += `🏠 Address: ${address}, ${city}\n\n`;
+  message += `📚 *Order Items:*\n`;
+
+  let total = 0;
+
+  cartItems.forEach(item => {
+    if (item) {
+      let sub = item.price * item.quantity;
+      total += sub;
+      message += `• ${item.name} × ${item.quantity} = ₹${sub}\n`;
+    }
+  });
+
+  message += `\n💰 *Total Amount:* ₹${total}\n`;
+  message += `\nThank you for your order 😊`;
+
+  // WhatsApp number (OWNER)
+  let phoneNumber = "030212/6595"; // replace with your number
+
+  let whatsappURL =
+    "https://wa.me/" +
+    phoneNumber +
+    "?text=" +
+    encodeURIComponent(message);
+
+  // Open WhatsApp
+  window.open(whatsappURL, "_blank");
+
+  // ✅ Success alert
+  setTimeout(() => {
+    alert("✅ Order placed successfully!\nWhatsApp opened.");
+  }, 500);
+
+  // Clear cart
+  localStorage.removeItem("cartItems");
+}
+
+
+
+
+
+
+/*
 // Generate a simple customer ID
 function generateCustomerID() {
   return 'CUST-' + Math.floor(1000 + Math.random() * 9000);
@@ -109,4 +181,4 @@ placeOrderBtn.addEventListener("click", (e) => {
   // Open WhatsApp link
   window.open(`https://wa.me/${yourNumber}?text=${encodedMessage}`, "_blank");
 });
-                                                                   
+      */                                                             
