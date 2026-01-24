@@ -95,6 +95,78 @@ img{
     transition: 0.5s;
 }
 
+
+/* Cart overlay */
+.cartOverlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 400px;       /* adjust as needed */
+  height: 100%;
+  background-color: #fff;
+  box-shadow: -2px 0 10px rgba(0,0,0,0.2);
+  z-index: 1000;
+  display: none;      /* show when active */
+  flex-direction: column;
+  overflow: hidden;   /* hide overflow outside cart */
+  border-left: 1px solid #ddd;
+}
+
+/* Show cart when body has .active */
+body.active .cartOverlay {
+  display: flex;
+}
+
+/* Scrollable product list */
+.cartContent {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.productList {
+  flex: 1;            /* fill available space */
+  overflow-y: auto;   /* scroll if many items */
+  padding: 20px;
+}
+
+/* Footer pinned at bottom */
+.cartFooter {
+  padding: 15px;
+  border-top: 1px solid #ddd;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: #f9f9f9;
+}
+
+.cartFooter button {
+  padding: 12px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 6px;
+  border: none;
+}
+
+.cartFooter .checkk {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.cartFooter .close {
+  background-color: #f44336;
+  color: white;
+}
+
+
+
+
+
+
+
+
+
+
 .cart{
     position: fixed;
     top: 0;
