@@ -10,7 +10,7 @@
     
 
 <h1>Checkout Form</h1>
-    <h3>Complete Your Order On WhatsApp📦</h3>
+    <h3><bold>Complete Your Order On WhatsApp</bold></h3>
 <div class="row">
   <div class="col-75">
     <div class="container">
@@ -46,30 +46,6 @@
 
 
 <script src="https://kit.fontawesome.com/f497a2fd00.js" crossorigin="anonymous"></script>
-<script>
-    function SetInStorage() {
-  // e.preventDeafult();
-  let name = document.getElementById("name");
-  let email = document.getElementById("email");
-  let phone = document.getElementById("phone");
-  let address = document.getElementById("adr");
-  let city = document.getElementById("city");
-  let btn = document.getElementById("btn");
-
-  localStorage.setItem("name", name.value);
-  localStorage.setItem("email", email.value);
-  localStorage.setItem("phone", phone.value);
-  localStorage.setItem("adr", address.value);
-  localStorage.setItem("city", city.value);
-
-//   let get = localStorage.getItem("name");
-//   console.log(get);
-
-let getname = localStorage.getItem("name")
-let getemail = localStorage.getItem("email")
-let getphone = localStorage.getItem("phone")
-let getadr = localStorage.getItem("adr")
-let getcity = localStorage.getItem("city")
-    </script>
+<scriptn src="checkout.js"></script>
 </body>
 </html>
