@@ -100,7 +100,7 @@ function placeOrder() {
   message += `\nThank you for your order 😊`;
 
   // WhatsApp number (OWNER)
-  let ownerNumber = "030212/6595"; // replace with your number
+  let ownerNumber = "9230212/6595"; // replace with your number
 
   const whatsappURL = `https://wa.me/${ownerNumber}?text=${encodeURIComponent(message)}`;
 
