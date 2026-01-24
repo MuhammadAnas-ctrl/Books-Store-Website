@@ -99,13 +99,12 @@ function placeOrder() {
   message += `\n💰 *Total Amount:* ₹${total}\n`;
   message += `\nThank you for your order 😊`;
 
+  const encodedMessage = encodeURIComponent(message);
+  
   // WhatsApp number (OWNER)
-  let ownerNumber = "9230212/6595"; // replace with your number
+  let ownerNumber = "03021206595"; // replace with your number
 
-  const whatsappURL = `https://wa.me/${ownerNumber}?text=${encodeURIComponent(message)}`;
-
-  // 🔥 OPEN WHATSAPP FIRST (NO POPUP ISSUE)
-  window.open(whatsappURL, "_blank");
+  window.open(`https://wa.me/${ownerNumber}?text=${encodedMessage}`, "_blank");
 
   // ✅ Success alert
   alert("✅ WhatsApp opened!\nPlease click SEND to confirm your order.");
