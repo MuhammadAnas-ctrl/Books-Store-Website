@@ -163,75 +163,84 @@ body.active .cartOverlay {
 }
 
 
+/* 1. Main List Container */
 .productList {
-  flex: 1;
-  overflow-y: auto;
-  padding: 10px;
-    color:black;
-  list-style: none;
+    flex: 1;
+    overflow-y: auto;
+    padding: 10px;
+    color: black;
+    list-style: none;
+    /* Ensure the container doesn't horizontal scroll */
+    overflow-x: hidden; 
 }
 
+/* 2. List Item (The Row) */
 .productList li {
-  display: flex;
-  align-items: center;
-  padding: 12px 8px;
-  color: black;
-  border-bottom: 1px solid #eee;
-  
+    display: flex;
+    align-items: center;
+    padding: 12px 8px;
+    color: black;
+    border-bottom: 1px solid #eee;
+    gap: 12px; /* Adds consistent spacing between all elements in the row */
 }
 
-/* image */
+/* 3. Book Image */
 .productList li img {
-  width: 50px;
-  height: 65px;
-  object-fit: contain;
-  flex-shrink: 0;
+    width: 50px;
+    height: 65px;
+    object-fit: contain;
+    flex-shrink: 0;
 }
-/* name */
 
+/* 4. Book Name - FIXED */
 .productList .name {
-  font-size: 14px;
-  font-weight: 600;
-  margin-left: 8px;
-  color:black;
-  flex: 1;
+    font-size: 14px;
+    font-weight: 600;
+    color: black;
+    /* Remove margin-left: 8px; */
+    /* Remove flex: 1; -> This was pushing the quantity buttons to the edge */
+    flex-grow: 1; /* Allows name to take available space but respects others */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; /* Prevents long names from breaking the layout */
 }
 
-
-
-
+/* 5. Quantity Controls - FIXED */
 .productList .quantityContainer {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  color: black;
-  margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: black;
+    /* Remove margin-left: auto; -> This was forcing it to the far right */
+    flex-shrink: 0;
+}
+
+/* 6. Buttons & Remove Button */
+.productList .quantityContainer button,
+.productList .removeBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    flex-shrink: 0;
 }
 
 .productList .quantityContainer button {
-  width: 32px;
-  height: 32px;
-  background: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 6px;
-  font-size: 16px;
-}
-
-.productList .quantityContainer .quantity {
-  min-width: 20px;
-  text-align: center;
+    width: 32px;
+    height: 32px;
+    background: #007bff;
+    color: #fff;
 }
 
 .productList .removeBtn {
-  background: red;
-  color: white;
-  border: none;
-  width: 34px;
-  height: 34px;
-  border-radius: 6px;
-  margin-left: 6px;
-  font-size: 16px;
+    background: red;
+    color: white;
+    width: 34px;
+    height: 34px;
+    margin-left: 4px; /* Small gap from quantity */
 }
 
 .cartFooter {
