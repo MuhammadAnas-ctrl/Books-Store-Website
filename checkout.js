@@ -106,8 +106,6 @@ function placeOrder() {
 
   window.open(`https://wa.me/${ownerNumber}?text=${encodedMessage}`, "_blank");
 
-  // ✅ Success alert
-  alert("✅ WhatsApp opened!\nPlease click SEND to confirm your order.");
 
   // Clear cart
   localStorage.removeItem("cartItems");
