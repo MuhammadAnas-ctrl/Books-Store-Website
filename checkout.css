@@ -242,6 +242,7 @@ span.price {
   border-radius: 12px;
   cursor: pointer;
   transition: all 0.3s ease;
+    margin-top:10px;
   width: 100%;              /* full width */
   display: inline-flex;
   align-items: center;
