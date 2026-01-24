@@ -146,6 +146,7 @@ body.active .cartOverlay {
   justify-content: flex-start;
   padding: 10px 5px;
   border-bottom: 1px solid #eee;
+    color:black;
   gap: 3px;
   min-height: 60px; /* ensures enough space for all elements */
   overflow: hidden;
@@ -163,7 +164,8 @@ body.active .cartOverlay {
   flex: 1;                     /* take remaining space */
   font-size: 14px;
   white-space: nowrap;          /* single line */
-  overflow: hidden;             /* hide overflow */
+  overflow: hidden;    
+    color:black; /* hide overflow */
   text-overflow: ellipsis;      /* show "..." if too long */
 }
 
