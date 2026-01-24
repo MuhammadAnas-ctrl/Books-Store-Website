@@ -148,28 +148,19 @@ function changeQuantity(key,quantity){
     }
     reloadCart()
 }
-
 checkk.addEventListener("click", () => {
-  // Save cart to localStorage
-  localStorage.setItem("cartItems", JSON.stringify(checkOutList));
-
-  // Go to checkout page
-  window.open("checkout.html", "_self");
-});
-checkk.addEventListener("click", (e) => {
-  e.preventDefault(); // <-- stop default form/button behavior
-
-  // Check if cart has any items
+  // Check if cart has items
   const cartHasItems = checkOutList.some(item => item != null);
 
   if (!cartHasItems) {
     alert("Your cart is empty! Please add some books before checkout.");
-    window.open("index.html")
+    return; // stop execution, checkout won't open
   }
 
-  // If cart has items, open checkout page
+  // Cart has items, open checkout page
   window.open("checkout.html", "_self");
 });
+
 
 
   // Email.send({
