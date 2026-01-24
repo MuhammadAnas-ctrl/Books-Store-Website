@@ -194,15 +194,19 @@ body.active .cartOverlay {
 
 /* 4. Book Name - FIXED */
 .productList .name {
+    display: block;      /* Ensure it's treated as a block */
+    flex: 1 1 auto;      /* Grow and shrink as needed */
+    margin-left: 12px;   /* Space from the image */
+    margin-right: 12px;  /* Space before the buttons */
     font-size: 14px;
     font-weight: 600;
-    color: black;
-    /* Remove margin-left: 8px; */
-    /* Remove flex: 1; -> This was pushing the quantity buttons to the edge */
-    flex-grow: 1; /* Allows name to take available space but respects others */
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis; /* Prevents long names from breaking the layout */
+    color: #000000;      /* Force pure black */
+    text-align: left;    /* Keep it to the left side */
+    
+    /* These lines prevent the name from disappearing if it's long */
+    min-width: 50px;     
+    white-space: normal; /* Allows wrapping if the name is long */
+    overflow: visible;/* Prevents long names from breaking the layout */
 }
 
 /* 5. Quantity Controls - FIXED */
