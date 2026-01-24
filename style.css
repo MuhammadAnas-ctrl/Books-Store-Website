@@ -178,6 +178,7 @@ body.active .cartOverlay {
   align-items: center;
   gap: 10px;
   padding: 10px 0;
+    color:black;
   border-bottom: 1px solid #eee;
 }
 
