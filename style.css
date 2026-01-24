@@ -175,7 +175,7 @@ body.active .cartOverlay {
   display: flex;
   align-items: center;
   padding: 12px 8px;
-    color: black;
+  color: black;
   border-bottom: 1px solid #eee;
   gap: 8px;
 }
@@ -192,14 +192,11 @@ body.active .cartOverlay {
 .productList .name {
   font-size: 14px;
   font-weight: 600;
-  margin-left: 8px;
+  
   color:black;
   flex: 1;
 
-  /* long name handling */
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+
 }
 
 
@@ -209,7 +206,7 @@ body.active .cartOverlay {
   display: flex;
   align-items: center;
   gap: 6px;
-  color : black;
+  color: black;
   margin-left: auto;
 }
 
