@@ -164,7 +164,7 @@ checkk.addEventListener("click", (e) => {
 
   if (!cartHasItems) {
     alert("Your cart is empty! Please add some books before checkout.");
-    return; // stop opening checkout
+    window.open("index.html")
   }
 
   // If cart has items, open checkout page
