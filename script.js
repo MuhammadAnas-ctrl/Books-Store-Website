@@ -143,33 +143,7 @@ function changeQuantity(key,quantity){
     reloadCart()
 }
 
-function Subscribee() {
-  const Sub = document.querySelector("#Subscribe");
-  const name = document.querySelector("#Name");
 
-  let code_val = Math.floor(Math.random() * 10000);
-  let code = `Customers Id is : ${code_val}`;
-
-  Email.send({
-    SecureToken: "fad83ec4-6fde-4061-a088-79e75e1c3c90",
-    To: "flashycoderch@gmail.com",
-    From: "flashycoderch@gmail.com",
-    Subject: `${Sub.value} has Subscribed`,
-    Body: `
-    <h2>${code}</h2>
-    <h3>${code}</h3><br><br>
-    <h3>A person has Subscribed you</h3> <br>
-    <h2>Name: ${Sub.value}</h2> <br>
-    <h2>Email : ${name.value}</h2>
-    `,
-  }).then((message) => {
-    if (message === "OK") {
-      alert("Successfully Subscribed");
-    } else {
-      alert("Failed to Subscribe");
-    }
-  });
-}
 
   // Email.send({
   //   Host: "smtp.elasticemail.com",
