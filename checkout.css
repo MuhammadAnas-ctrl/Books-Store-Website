@@ -151,12 +151,22 @@ span.price {
   margin: 0;
 }
 
+.checkoutList .name {
+  font-size: 14px;
+  margin-right: 13px;
+  flex: 2;
+  white-space: nowrap;       
+  overflow: hidden;          
+  text-overflow: ellipsis;   
+}
+
 .checkoutList li {
   display: flex;
   align-items: center;
   justify-content: flex-start;
   padding: 10px 0;
   border-bottom: 1px solid #ddd;
+  min-height: 50px;          
 }
 
 .checkoutList img {
@@ -168,11 +178,7 @@ span.price {
 
 }
 
-.checkoutList .name {
-  font-size: 14px;
-  margin-right: 13px;
-  flex: 2;
-}
+
 
 .checkoutList .quantityContainer {
   display: flex;
