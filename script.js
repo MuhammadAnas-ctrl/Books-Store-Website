@@ -157,6 +157,18 @@ checkk.addEventListener("click", () => {
   window.open("checkout.html", "_self");
 });
 
+checkk.addEventListener("click", () => {
+  // Filter out any deleted items (in case some indices are null)
+  const cartHasItems = checkOutList.some(item => item != null);
+
+  if (!cartHasItems) {
+    alert("Your cart is empty! Please add some books before checkout.");
+    return; // stop execution, don't open checkout page
+  }
+
+  // If cart has items, open checkout page
+  window.open("checkout.html", "_self");
+});
 
   // Email.send({
   //   Host: "smtp.elasticemail.com",
