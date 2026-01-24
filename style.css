@@ -197,7 +197,7 @@ body.active .cartOverlay {
 .productList .name {
     display: block;      /* Ensure it's treated as a block */
     flex: 1 1 auto;      /* Grow and shrink as needed */
-    margin-left: 12px;   /* Space from the image */
+       /* Space from the image */
     margin-right: 12px;  /* Space before the buttons */
     font-size: 14px;
     font-weight: 600;
@@ -217,6 +217,7 @@ body.active .cartOverlay {
     gap: 8px;
     flex-shrink: 0;      /* Prevents buttons from getting squashed */
     margin-left: auto;
+    color:black;
 }
 
 /* 6. Buttons & Remove Button */
