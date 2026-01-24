@@ -83,7 +83,7 @@ function placeOrder() {
   message += `🆔 Order ID: ${customerId}\n`;
   message += `👤 Name: ${name}\n`;
   message += `📞 Phone: ${phone}\n`;
-  message += `🏠 Address: ${address}\n, 🏙️ City: ${city}\n\n`;
+  message += `🏠 Address: ${address}\n 🏙️ City: ${city}\n\n`;
   message += `📚 *Order Items:*\n`;
 
   let total = 0;
