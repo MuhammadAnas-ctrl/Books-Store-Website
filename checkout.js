@@ -51,3 +51,62 @@ function changeQuantity(index, newQuantity) {
 }
 
 loadCheckout();
+
+const placeOrderBtn = document.getElementById("placeOrderBtn");
+
+// Generate a simple customer ID
+function generateCustomerID() {
+  return 'CUST-' + Math.floor(1000 + Math.random() * 9000);
+}
+
+placeOrderBtn.addEventListener("click", (e) => {
+  e.preventDefault(); // prevent form submission
+
+  // Get customer details
+  const name = document.getElementById("name").value.trim();
+  const phone = document.getElementById("phone").value.trim();
+  const address = document.getElementById("address").value.trim();
+  const city = document.getElementById("city").value.trim();
+
+  if (!name || !phone || !address || !city) {
+    alert("Please fill all details!");
+    return;
+  }
+
+  // Get cart items
+  let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+  if(cartItems.length === 0){
+    alert("Your cart is empty!");
+    return;
+  }
+
+  // Generate customer ID
+  const customerID = generateCustomerID();
+
+  // Build message
+  let message = `🛒 *New Order Received*\n`;
+  message += `Customer ID: ${customerID}\n`;
+  message += `Name: ${name}\n`;
+  message += `Phone: ${phone}\n`;
+  message += `Address: ${address}\n`;
+  message += `City: ${city}\n\n`;
+  message += `📚 *Order Details:*\n`;
+
+  let subtotal = 0;
+  cartItems.forEach((item, index) => {
+    message += `${index + 1}. ${item.name} × ${item.quantity} = ₹${item.price * item.quantity}\n`;
+    subtotal += item.price * item.quantity;
+  });
+
+  message += `\n💰 Subtotal: ₹${subtotal}`;
+
+  // Encode message for URL
+  const encodedMessage = encodeURIComponent(message);
+
+  // Your WhatsApp number (replace with your number with country code, no + or 0)
+  const yourNumber = "03021206595"; // Example: 919876543210 for India
+
+  // Open WhatsApp link
+  window.open(`https://wa.me/${yourNumber}?text=${encodedMessage}`, "_blank");
+});
+                                                                   
