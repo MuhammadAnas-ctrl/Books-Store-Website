@@ -100,21 +100,15 @@ function placeOrder() {
   message += `\nThank you for your order 😊`;
 
   // WhatsApp number (OWNER)
-  let phoneNumber = "030212/6595"; // replace with your number
+  let ownerNumber = "030212/6595"; // replace with your number
 
-  let whatsappURL =
-    "https://wa.me/" +
-    phoneNumber +
-    "?text=" +
-    encodeURIComponent(message);
+  const whatsappURL = `https://wa.me/${ownerNumber}?text=${encodeURIComponent(message)}`;
 
-  // Open WhatsApp
+  // 🔥 OPEN WHATSAPP FIRST (NO POPUP ISSUE)
   window.open(whatsappURL, "_blank");
 
   // ✅ Success alert
-  setTimeout(() => {
-    alert("✅ Order placed successfully!\nWhatsApp opened.");
-  }, 500);
+  alert("✅ WhatsApp opened!\nPlease click SEND to confirm your order.");
 
   // Clear cart
   localStorage.removeItem("cartItems");
