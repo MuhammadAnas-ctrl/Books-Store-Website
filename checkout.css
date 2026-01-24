@@ -166,7 +166,8 @@ span.price {
   justify-content: flex-start;
   padding: 10px 0;
   border-bottom: 1px solid #ddd;
-  min-height: 50px;          
+  min-height: 50px; 
+    gap:10px;
 }
 
 .checkoutList img {
@@ -185,6 +186,7 @@ span.price {
   align-items: center;
   justify-content: center;
   flex: 1;
+    gap:5px;
 }
 
 .checkoutList .quantityContainer button {
@@ -212,11 +214,12 @@ span.price {
   background-color: red;
   border: none;
   color: white;
-  font-size: 12px;
-  padding: 5px 5px;
+  font-size: 14px;
+  padding: 5px 8px; /* smaller padding */
   cursor: pointer;
   border-radius: 4px;
-  flex: 1;
+  flex: 0 0 auto; /* prevent flex from stretching */
+  width: auto; /* remove previous flex 1 */
 }
 
 .checkoutList .removeBtn:hover {
