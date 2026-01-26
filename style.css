@@ -499,7 +499,7 @@ footer h2{
     .products {
         grid-template-columns: repeat(2, 1fr);
         gap: 40px;
-        padding:30px;
+        padding:4px;
     }
 }
 
