@@ -68,6 +68,7 @@ img{
     height: 60px; /* Fixed height keeps cards uniform */
     width: auto;
     margin-bottom: 5px;
+    filter: drop-shadow(10px 10px 5px #d3d3d3);
 }
 
 /* Shrink the name and price text */
@@ -83,6 +84,7 @@ img{
 
 .products .item button {
     width: 100%;
+    margin-top:3px;
     padding: 6px 2px; /* Thinner padding */
     font-size: 0.75rem; /* Smaller font prevents the text from breaking into 2 lines */
     display: flex;
@@ -96,8 +98,15 @@ img{
     background-color: #343432;
     color: #fff;
 }
+.products .item .price{
+    margin: 10px;
+}
 .products .item button i{
     font-size: 0.8rem; /* Scale down the cart icon slightly */
+}
+.products .item img:hover,.products .item img:active{
+    scale: 1.2;
+    transition: 0.5s;
 }
 /*
 .products{
