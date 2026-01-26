@@ -511,7 +511,13 @@ footer h2{
         padding:45px;
     }
 }
-
+@media screen and (min-width: 1024px) {
+    .products {
+        grid-template-columns: repeat(5, 1fr);
+        gap:50px;
+        padding:45px;
+    }
+}
 
 @media (max-width:550px){
     header{
