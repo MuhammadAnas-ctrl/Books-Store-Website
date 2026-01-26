@@ -2,44 +2,44 @@
 let ArrProducts = [
   {
     id: 1,
-    name: "HTML",
+    name: "Product 1",
     image: "img1.png",
     price: "1000",
     rating: 5,
   },
   {
     id: 2,
-    name: "CSS",
+    name: "Product 2",
     image: "img2.png",
-    price: "2000",
+    price: "700",
     rating: 4,
   },
   {
     id: 3,
-    name: "JAVASCRIPT",
+    name: "Product 3",
     image: "img3.png",
-    price: "5000",
+    price: "3500",
     rating: 5,
   },
   {
     id: 4,
-    name: "JQUERY",
+    name: "Product 4",
     image: "img4.png",
-    price: "3000",
+    price: "1500",
     rating: 3,
   },
   {
     id: 5,
-    name: "REACT",
+    name: "Product 5",
     image: "img5.png",
-    price: "5000",
+    price: "2500",
     rating: 4,
   },
   {
     id: 6,
-    name: "ANGULAR",
+    name: "Product 6",
     image: "img6.png",
-    price: "4000",
+    price: "900",
     rating: 3,
   },
 ];
@@ -102,7 +102,7 @@ function onInIt(){
         <img src = "images/${item.image}"/>
         <div class="name">${item.name}</div>
         <div>${star}</div>
-        <div class="price"><small>₹</small>${item.price}</div>
+        <div class="price">${item.price} <small>Rs</small></div>
         <button onClick="addtoCart(${key})"><i class="fa fa-cart-plus"></i>Add to Cart</button>
         `;
         products.appendChild(div)
