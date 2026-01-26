@@ -90,6 +90,11 @@ img{
     align-items: center;
     justify-content: center;
     gap: 4px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background-color: #343432;
+    color: #fff;
 }
 .products .item button i{
     font-size: 0.8rem; /* Scale down the cart icon slightly */
