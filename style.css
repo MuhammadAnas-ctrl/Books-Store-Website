@@ -498,7 +498,7 @@ footer h2{
 @media screen and (min-width: 450px) {
     .products {
         grid-template-columns: repeat(2, 1fr);
-        gap: 40px;
+        gap: 0px;
         padding:4px;
     }
 }
