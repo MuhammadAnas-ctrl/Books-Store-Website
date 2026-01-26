@@ -53,8 +53,6 @@ img{
     gap: 12px; 
     padding: 12px;
     color: black;
-    margin: 10px 55px;
-    padding: 0 55px;
     column-gap: 25px;
     row-gap: 25px; 
 }
