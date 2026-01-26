@@ -53,13 +53,13 @@ img{
     column-gap: 25px;
     row-gap: 25px;
     color: black;
-    margin: 10px 2px;
+    margin: 10px 55px;
     padding: 0 55px;
 }
 
 .products .item{
     text-align: center;
-    padding: 20px;
+    padding: 5px;
     border-radius: 20px;
     box-shadow: 0 0px 50px #757676;
     letter-spacing: 1px;
