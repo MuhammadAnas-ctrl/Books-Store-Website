@@ -53,14 +53,13 @@ img{
     gap: 12px; 
     padding: 12px;
     color: black;
-    column-gap: 25px;
-    row-gap: 25px; 
+    
 }
 .products .item {
     background-color: #fff;
     border-radius: 25px;
     
-    padding: 10px; /* Reduced from 20px to save space */
+    padding: 25px; /* Reduced from 20px to save space */
     border-radius: 15px;
     text-align: center;
     box-shadow: 0 5px 15px rgba(0,0,0,0.05);
