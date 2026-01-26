@@ -59,15 +59,23 @@ img{
 .products .item {
     background-color: #fff;
     border-radius: 25px;
-    padding: 15px;
+    
+    padding: 10px; /* Reduced from 20px to save space */
+    border-radius: 15px;
     text-align: center;
     box-shadow: 0 5px 15px rgba(0,0,0,0.05);
 }
 
 .products .item img {
-    width: 60px; /* Reduced size for mobile screens */
-    height: auto;
-    margin-bottom: 10px;
+    height: 60px; /* Fixed height keeps cards uniform */
+    width: auto;
+    margin-bottom: 5px;
+}
+
+/* Shrink the name and price text */
+.products .item .name {
+    font-size: 0.85rem;
+    margin-bottom: 2px;
 }
 
 .products .item .name {
@@ -77,10 +85,15 @@ img{
 
 .products .item button {
     width: 100%;
-    font-size: 0.8rem; /* Smaller button text to prevent overflow */
-    padding: 10px 5px;
-    border-radius: 15px;
-    cursor: pointer;
+    padding: 6px 2px; /* Thinner padding */
+    font-size: 0.75rem; /* Smaller font prevents the text from breaking into 2 lines */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+}
+.products .item button i{
+    font-size: 0.8rem; /* Scale down the cart icon slightly */
 }
 /*
 .products{
