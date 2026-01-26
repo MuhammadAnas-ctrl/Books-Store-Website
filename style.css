@@ -482,7 +482,7 @@ footer h2{
 
 
 /* Tablet (Screens wider than 600px) */
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 450px) {
     .products {
         grid-template-columns: repeat(2, 1fr);
         gap: 20px;
@@ -490,7 +490,7 @@ footer h2{
 }
 
 /* PC/Desktop (Screens wider than 1024px) */
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 850px) {
     .products {
         grid-template-columns: repeat(3, 1fr);
     }
