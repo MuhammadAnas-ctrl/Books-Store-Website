@@ -9,7 +9,7 @@ let ArrProducts = [
   },
   {
     id: 2,
-    name: "Product 2",
+    name: "Product Name Is Large Checking It Out",
     image: "img2.png",
     price: "700",
     rating: 4,
