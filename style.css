@@ -51,7 +51,7 @@ img{
     /* Forces 2 columns on mobile by default */
     grid-template-columns: repeat(2, 1fr); 
     gap: 12px; 
-    padding: 16px;
+    padding: 40px;
     color: black;
     
 }
