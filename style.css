@@ -51,15 +51,14 @@ img{
     /* Forces 2 columns on mobile by default */
     grid-template-columns: repeat(2, 1fr); 
     gap: 12px; 
-    padding: 12px;
+    padding: 16px;
     color: black;
     
 }
 .products .item {
     background-color: #fff;
     border-radius: 25px;
-    
-    padding: 25px; /* Reduced from 20px to save space */
+    padding: 50px; /* Reduced from 20px to save space */
     border-radius: 15px;
     text-align: center;
     box-shadow: 0 5px 15px rgba(0,0,0,0.05);
@@ -92,6 +91,7 @@ img{
     gap: 4px;
     cursor: pointer;
     border: none;
+    border-radius: 20px;
     outline: none;
     background-color: #343432;
     color: #fff;
