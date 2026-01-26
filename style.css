@@ -46,15 +46,48 @@ h2{
 img{
     width: 50px;
 }
+.products {
+    display: grid;
+    /* Forces 2 columns on mobile by default */
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 12px; 
+    padding: 12px;
+    color: black;
+    margin: 10px 55px;
+    padding: 0 55px;
+}
+.products .item {
+    background-color: #fff;
+    border-radius: 25px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
 
+.products .item img {
+    width: 60px; /* Reduced size for mobile screens */
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.products .item .name {
+    font-weight: bold;
+    font-size: 0.9rem; /* Slightly smaller text */
+}
+
+.products .item button {
+    width: 100%;
+    font-size: 0.8rem; /* Smaller button text to prevent overflow */
+    padding: 10px 5px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+/*
 .products{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     column-gap: 25px;
-    row-gap: 25px;
-    color: black;
-    margin: 10px 55px;
-    padding: 0 55px;
+    row-gap: 25px; 
 }
 
 .products .item{
@@ -95,7 +128,7 @@ img{
     scale: 1.1;
     transition: 0.5s;
 }
-
+*/
 
 
 .cartOverlay {
@@ -433,10 +466,29 @@ ul a:hover,ul a:active{
 footer h2{
     color: #eee;
 }
+
+
+/* Tablet (Screens wider than 600px) */
+@media screen and (min-width: 600px) {
+    .products {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
+/* PC/Desktop (Screens wider than 1024px) */
+@media screen and (min-width: 1024px) {
+    .products {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+
 @media (max-width:550px){
     header{
         padding: 25px;
     }
+    /*
     .products{
         display: block;
         padding: 5px;
@@ -445,13 +497,15 @@ footer h2{
     .products .item{
         margin-bottom: 20px;
     }
-
+*/
 }
+/*
 @media (max-width:770px) {
     .products{
         grid-template-columns: repeat(2, 1fr);
     }
 }
+*/
 @media (max-width:397px){
     .cart{
         height: 97vh;
