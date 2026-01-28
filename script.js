@@ -102,10 +102,7 @@ closeCart.onclick=()=>{
 checkk.addEventListener("click",()=>{
   window.open("checkout.html", "_self")
 })
-// 1. Target your search input and product container
-const searchInput = document.querySelector('.search-input'); // Your fancy search bar class
-const products = document.querySelector('.products'); // The container where items go
-// 1. Make sure these match your HTML IDs/Classes exactly
+
 const productsContainer = document.querySelector(".products"); // Make sure your HTML has <div class="products"></div>
 const searchInput = document.querySelector(".search-input");
 
