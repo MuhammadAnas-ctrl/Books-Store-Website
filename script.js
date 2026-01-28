@@ -105,17 +105,26 @@ checkk.addEventListener("click",()=>{
 // 1. Target your search input and product container
 const searchInput = document.querySelector('.search-input'); // Your fancy search bar class
 const products = document.querySelector('.products'); // The container where items go
+// 1. Make sure these match your HTML IDs/Classes exactly
+const productsContainer = document.querySelector(".products"); // Make sure your HTML has <div class="products"></div>
+const searchInput = document.querySelector(".search-input");
 
-// 2. The Display Function (Re-written for Search)
+// 2. The Main Display Function
 function displayProducts(itemsToDisplay) {
-    // Clear the current products first
-    products.innerHTML = "";
+    // Clear the container so we don't get duplicates
+    productsContainer.innerHTML = "";
 
-    // Loop through the provided array (either the full one or the filtered one)
+    // If search finds nothing
+    if (itemsToDisplay.length === 0) {
+        productsContainer.innerHTML = `<p style="color:white; text-align:center; width:100%;">No books found. 📚</p>`;
+        return;
+    }
+
     itemsToDisplay.forEach((item, key) => {
         let div = document.createElement("div");
         div.classList.add("item");
 
+        // Your Star Rating Logic
         let star = "";
         for (let i = 0; i < item.rating; i++) {
             star += `<i class="fa fa-star"></i>`;
@@ -125,32 +134,29 @@ function displayProducts(itemsToDisplay) {
             <img src="images/${item.image}"/>
             <div class="name">${item.name}</div>
             <div>${star}</div>
-            <div class="price">${item.price} <small>💲</small></div>
-            <button onClick="addtoCart(${key})"><i class="fa fa-cart-plus"></i>Add to Cart</button>
+            <div class="price">${item.price} <small>$</small></div>
+            <button onClick="addtoCart(${key})"><i class="fa fa-cart-plus"></i> Add to Cart</button>
         `;
-        products.appendChild(div);
+        productsContainer.appendChild(div);
     });
 }
 
-// 3. The Search Event Listener
-searchInput.addEventListener('input', (e) => {
-    const searchTerm = e.target.value.toLowerCase();
-    
-    // Filter the main ArrProducts array based on the name
-    const filtered = ArrProducts.filter(item => {
-        return item.name.toLowerCase().includes(searchTerm);
+// 3. The Search Logic
+if (searchInput) {
+    searchInput.addEventListener('input', (e) => {
+        const searchTerm = e.target.value.toLowerCase();
+        const filtered = ArrProducts.filter(item => {
+            return item.name.toLowerCase().includes(searchTerm);
+        });
+        displayProducts(filtered);
     });
+}
 
-    // Run the display function with only the filtered items
-    displayProducts(filtered);
-});
-
-// 4. Update your onInIt to call the new function
+// 4. Start the Page
 function onInIt() {
     displayProducts(ArrProducts);
 }
 
-// Start the app
 onInIt();
 
 
