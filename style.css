@@ -916,35 +916,47 @@ footer h2{
   margin-bottom: 30px;
   opacity: 0.9;
 }
-
-.btn-primary {
+/* Base Button Style */
+.btn-coffee {
   display: inline-block;
-  padding: 15px 30px;
-  background-color: #25D366;
-  color: white;
+  padding: 14px 28px;
+  background-color: transparent; /* Transparent background */
+  color: #6F4E37; /* Coffee color text */
+  border: 2px solid #6F4E37; /* Coffee color border */
   text-decoration: none;
-  border-radius: 50px;
-  font-weight: bold;
+  border-radius: 8px; /* Little border radius */
+  font-weight: 600;
   margin: 10px;
-  transition: 0.3s;
+  cursor: pointer;
+  
+  /* The Animation Logic */
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); 
+  position: relative;
+  overflow: hidden;
 }
 
-.btn-secondary {
-  display: inline-block;
-  padding: 15px 30px;
-  background-color: transparent;
-  color: white;
-  border: 2px solid white;
-  text-decoration: none;
-  border-radius: 50px;
-  font-weight: bold;
-  margin: 10px;
-  transition: 0.3s;
+/* Hover Animation (Desktop) */
+@media (hover: hover) {
+  .btn-coffee:hover {
+    background-color: #6F4E37; /* Change to coffee bg */
+    color: #ffffff; /* Change text to white */
+    transform: translateY(-2px); /* Subtle lift animation */
+    box-shadow: 0 4px 12px rgba(111, 78, 55, 0.3); /* Subtle coffee glow */
+  }
 }
 
-.btn-primary:hover { background-color: #128C7E; transform: scale(1.05); }
-.btn-secondary:hover { background-color: white; color: black; }
+/* Mobile Click/Active State */
+/* This ensures the background changes when touched on a phone */
+.btn-coffee:active {
+  background-color: #4B3621 !important; /* Darker espresso color on click */
+  color: #fff !important;
+  transform: scale(0.95); /* Slight "press" effect */
+}
 
+/* Fix for mobile blue highlight box on tap */
+.btn-coffee {
+  -webkit-tap-highlight-color: transparent;
+}
 /* Responsive fix for small phones */
 @media (max-width: 600px) {
   .hero-section { height: 60vh; background-attachment: scroll; }
