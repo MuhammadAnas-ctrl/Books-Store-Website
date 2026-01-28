@@ -49,7 +49,7 @@ let ArrProducts = [
 
 
 const searchInput = document.querySelector('.search-input');
-const productsContainer = document.querySelector('.products-container'); // Change this to your actual list class
+const productsContainer = document.querySelector('.products'); // Change this to your actual list class
 
 // 1. Function to Display Products
 function displayProducts(products) {
@@ -64,18 +64,14 @@ function displayProducts(products) {
 
   // Map through filtered products and inject HTML
   products.forEach(product => {
-    productsContainer.innerHTML += `
-      <div class="book-card">
-        <div class="book-image-container">
-          <img src="${product.image}" alt="${product.name}" class="book-image">
-        </div>
-        <div class="book-info">
-          <h3 class="book-title">${product.name}</h3>
-          <p class="book-price">$${product.price}</p>
-          <button class="add-to-cart-btn" onclick="addToCart(${product.id})">Add to Cart</button>
-        </div>
-      </div>
-    `;
+    productsContainer.innerHTML = `
+        <img src = "images/${item.image}"/>
+        <div class="name">${item.name}</div>
+        <div>${star}</div>
+        <div class="price">${item.price} <small>💲</small></div>
+        <button onClick="addtoCart(${key})"><i class="fa fa-cart-plus"></i>Add to Cart</button>
+        `;
+        products.appendChild(productsContainer)
   });
 }
 
