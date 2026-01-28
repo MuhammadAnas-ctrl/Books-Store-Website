@@ -921,7 +921,7 @@ footer h2{
   display: inline-block;
   padding: 14px 28px;
   background-color: transparent; /* Transparent background */
-  color: #6F4E37; /* Coffee color text */
+  color: #fff; /* Coffee color text */
   border: 2px solid #6F4E37; /* Coffee color border */
   text-decoration: none;
   border-radius: 8px; /* Little border radius */
