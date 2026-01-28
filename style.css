@@ -978,7 +978,7 @@ footer h2{
   align-items: center;
   background: #ffffff;
   border: 2px solid #6F4E37; /* Coffee border */
-  border-radius: 50px; /* Fancy pill shape */
+  border-radius: 17px; /* Fancy pill shape */
   padding: 5px 15px;
   transition: all 0.3s ease;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
