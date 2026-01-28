@@ -45,6 +45,64 @@ let ArrProducts = [
 ];
 // console.log(ArrProducts);
 
+
+
+
+const searchInput = document.querySelector('.search-input');
+const productsContainer = document.querySelector('.products-container'); // Change this to your actual list class
+
+// 1. Function to Display Products
+function displayProducts(products) {
+  // Clear the current list
+  productsContainer.innerHTML = "";
+
+  // If no products found
+  if (products.length === 0) {
+    productsContainer.innerHTML = `<p style="text-align:center; color:#6F4E37;">No books found matching that search. 📚</p>`;
+    return;
+  }
+
+  // Map through filtered products and inject HTML
+  products.forEach(product => {
+    productsContainer.innerHTML += `
+      <div class="book-card">
+        <div class="book-image-container">
+          <img src="${product.image}" alt="${product.name}" class="book-image">
+        </div>
+        <div class="book-info">
+          <h3 class="book-title">${product.name}</h3>
+          <p class="book-price">$${product.price}</p>
+          <button class="add-to-cart-btn" onclick="addToCart(${product.id})">Add to Cart</button>
+        </div>
+      </div>
+    `;
+  });
+}
+
+// 2. Search Event Listener
+searchInput.addEventListener('input', (e) => {
+  const value = e.target.value.toLowerCase(); // Get user input
+  
+  // Filter the ArrProducts array
+  const filteredProducts = ArrProducts.filter(product => {
+    return product.name.toLowerCase().includes(value);
+  });
+
+  // Re-display only the filtered products
+  displayProducts(filteredProducts);
+});
+
+// Initial display on page load
+displayProducts(ArrProducts);
+
+
+
+
+
+
+
+
+
 const body = document.querySelector("body"),
   products = document.querySelector(".products"),
   shoppingBasket = document.querySelector(".shoppingBasket"),
