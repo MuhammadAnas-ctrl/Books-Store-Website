@@ -1,127 +1,41 @@
-
 let ArrProducts = [
-  {
-    id: 1,
-    name: "Product 1",
-    image: "img1.png",
-    price: "1000",
-    rating: 5,
-  },
-  {
-    id: 2,
-    name: "Product 2",
-    image: "img2.png",
-    price: "700",
-    rating: 4,
-  },
-  {
-    id: 3,
-    name: "Product 3",
-    image: "img3.png",
-    price: "3500",
-    rating: 5,
-  },
-  {
-    id: 4,
-    name: "Product 4",
-    image: "img4.png",
-    price: "1500",
-    rating: 3,
-  },
-  {
-    id: 5,
-    name: "Product 5",
-    image: "img5.png",
-    price: "2500",
-    rating: 4,
-  },
-  {
-    id: 6,
-    name: "Product 6",
-    image: "img6.png",
-    price: "900",
-    rating: 3,
-  },
+  { id: 1, name: "Product 1", image: "img1.png", price: "1000", rating: 5 },
+  { id: 2, name: "Product 2", image: "img2.png", price: "700", rating: 4 },
+  { id: 3, name: "Product 3", image: "img3.png", price: "3500", rating: 5 },
+  { id: 4, name: "Product 4", image: "img4.png", price: "1500", rating: 3 },
+  { id: 5, name: "Product 5", image: "img5.png", price: "2500", rating: 4 },
+  { id: 6, name: "Product 6", image: "img6.png", price: "900", rating: 3 },
 ];
-// console.log(ArrProducts);
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
 
 const body = document.querySelector("body"),
-  products = document.querySelector(".products"),
+  productsContainer = document.querySelector(".products"), // Your main grid
   shoppingBasket = document.querySelector(".shoppingBasket"),
   closeCart = document.querySelector(".close"),
-  productList = document.querySelector(".productList"),
+  productList = document.querySelector(".productList"), // Inside the cart
   quantity = document.querySelector(".quantity"),
   total = document.querySelector(".total"),
   checkk = document.querySelector(".checkk"),
-  Para = document.querySelector(".Para");
+  searchInput = document.querySelector(".search-input");
 
 let checkOutList = JSON.parse(localStorage.getItem("cartItems")) || [];
-function saveCart() {
-  localStorage.setItem("cartItems", JSON.stringify(checkOutList));
-}
 
-function updateCheckoutButton() {
-  if (quantity.innerHTML == 0) {
-    checkk.disabled = true;
-    checkk.style.opacity = "0.5";
-    checkk.style.cursor = "not-allowed";
-  } else {
-    checkk.disabled = false;
-    checkk.style.opacity = "1";
-    checkk.style.cursor = "pointer";
-  }
-}
+// --- 1. DISPLAY LOGIC ---
 
-
-
-
-
-
-shoppingBasket.onclick=()=>{
-  body.classList.add("active")
-}
-closeCart.onclick=()=>{
-  body.classList.remove("active")
-}
-checkk.addEventListener("click",()=>{
-  window.open("checkout.html", "_self")
-})
-
-const productsContainer = document.querySelector(".products"); // Make sure your HTML has <div class="products"></div>
-const searchInput = document.querySelector(".search-input");
-
-// 2. The Main Display Function
 function displayProducts(itemsToDisplay) {
-    // Clear the container so we don't get duplicates
-    productsContainer.innerHTML = "";
+    productsContainer.innerHTML = ""; // Clear grid
 
-    // If search finds nothing
     if (itemsToDisplay.length === 0) {
-        productsContainer.innerHTML = `<p style="color:white; text-align:center; width:100%;">No books found. 📚</p>`;
+        productsContainer.innerHTML = `<p style="color:white; text-align:center; width:100%; grid-column: 1/-1;">No books found matching that search. 📚</p>`;
         return;
     }
 
-    itemsToDisplay.forEach((item, key) => {
+    itemsToDisplay.forEach((item) => {
+        // Find the original index in ArrProducts so addtoCart works correctly
+        let originalIndex = ArrProducts.findIndex(p => p.id === item.id);
+        
         let div = document.createElement("div");
         div.classList.add("item");
 
-        // Your Star Rating Logic
         let star = "";
         for (let i = 0; i < item.rating; i++) {
             star += `<i class="fa fa-star"></i>`;
@@ -132,42 +46,32 @@ function displayProducts(itemsToDisplay) {
             <div class="name">${item.name}</div>
             <div>${star}</div>
             <div class="price">${item.price} <small>$</small></div>
-            <button onClick="addtoCart(${key})"><i class="fa fa-cart-plus"></i> Add to Cart</button>
+            <button onClick="addtoCart(${originalIndex})"><i class="fa fa-cart-plus"></i> Add to Cart</button>
         `;
         productsContainer.appendChild(div);
     });
 }
 
-// 3. The Search Logic
+// --- 2. SEARCH LOGIC ---
+
 if (searchInput) {
     searchInput.addEventListener('input', (e) => {
         const searchTerm = e.target.value.toLowerCase();
-        const filtered = ArrProducts.filter(item => {
-            return item.name.toLowerCase().includes(searchTerm);
-        });
+        const filtered = ArrProducts.filter(item => item.name.toLowerCase().includes(searchTerm));
         displayProducts(filtered);
     });
 }
 
-// 4. Start the Page
-function onInIt() {
-    displayProducts(ArrProducts);
-}
+// --- 3. CART LOGIC ---
 
-onInIt();
-
-
-function addtoCart(Id){
-  if(checkOutList[Id] == null){
-    checkOutList[Id] = ArrProducts[Id];
-    checkOutList[Id].quantity = 1;
+function addtoCart(index) {
+  if (checkOutList[index] == null) {
+    checkOutList[index] = { ...ArrProducts[index], quantity: 1 };
   } else {
-    checkOutList[Id].quantity += 1;
+    checkOutList[index].quantity += 1;
   }
-
   reloadCart();
 }
-
 
 function reloadCart() {
   productList.innerHTML = "";
@@ -183,79 +87,61 @@ function reloadCart() {
       li.innerHTML = `
         <img src="images/${item.image}" />
         <div class="name">${item.name}</div>
-
         <div class="quantityContainer">
           <button onclick="changeQuantity(${key}, ${item.quantity - 1})">-</button>
           <div class="quantity">${item.quantity}</div>
           <button onclick="changeQuantity(${key}, ${item.quantity + 1})">+</button>
         </div>
-
         <button class="removeBtn" onclick="removeItem(${key})">🗑️</button>
       `;
       productList.appendChild(li);
     }
   });
 
-  total.innerHTML = `<small>Subtotal (${count} items) ₹</small>` + totalPrice;
+  total.innerHTML = `<small>Subtotal (${count} items) $</small>` + totalPrice;
   quantity.innerHTML = count;
 
   saveCart();
   updateCheckoutButton();
 }
 
-
-// Remove item
-function removeItem(key){
+function removeItem(key) {
   delete checkOutList[key];
   reloadCart();
 }
 
-
-function changeQuantity(key, quantity){
-  if(quantity <= 0){
+function changeQuantity(key, q) {
+  if (q <= 0) {
     delete checkOutList[key];
   } else {
-    checkOutList[key].quantity = quantity;
+    checkOutList[key].quantity = q;
   }
   reloadCart();
 }
 
-checkk.addEventListener("click", () => {
+function saveCart() {
+  localStorage.setItem("cartItems", JSON.stringify(checkOutList));
+}
+
+function updateCheckoutButton() {
+  if (!checkk) return;
   if (quantity.innerHTML == 0) {
-    alert("🛒 Cart is empty! Please add items first.");
-    return;
+    checkk.disabled = true;
+    checkk.style.opacity = "0.5";
+  } else {
+    checkk.disabled = false;
+    checkk.style.opacity = "1";
   }
+}
 
-  // Cart already saved via reloadCart()
-  window.open("checkout.html", "_self");
-});
+// --- 4. EVENT LISTENERS ---
 
+shoppingBasket.onclick = () => body.classList.add("active");
+closeCart.onclick = () => body.classList.remove("active");
 
+function onInIt() {
+    displayProducts(ArrProducts);
+    reloadCart();
+}
 
-window.addEventListener("DOMContentLoaded", () => {
-  reloadCart();
-});
-
-
-
-
-
-
-
-
-
-
-
-
-
-  // Email.send({
-  //   Host: "smtp.elasticemail.com",
-  //   Username: "flashycoderch@gmail.com",
-  //   Password: "17E02C5E468429AD15A427B9A06DE5F72A15",
-  //   To: "flashycoderch@gmail.com",
-  //   From: "flashycoderch@gmail.com",
-  //   Subject: "This is the subject",
-  //   Body: "And this is the body",
-  // }).then((message) => alert(message));
-// }
-
+onInIt();
