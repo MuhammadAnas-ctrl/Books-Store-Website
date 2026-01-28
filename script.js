@@ -25,7 +25,7 @@ function displayProducts(itemsToDisplay) {
     productsContainer.innerHTML = ""; // Clear grid
 
     if (itemsToDisplay.length === 0) {
-        productsContainer.innerHTML = `<p style="color:white; text-align:center; width:100%; grid-column: 1/-1;">No books found matching that search. 📚</p>`;
+        productsContainer.innerHTML = `<p style="color:black; text-align:center; width:100%; grid-column: 1/-1;">No books found matching that search. 📚</p>`;
         return;
     }
 
