@@ -855,3 +855,98 @@ footer h2{
         margin-left: -150px;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 80vh; /* Covers 80% of the screen height */
+  background-image: url('https://images.unsplash.com/photo-1512820790803-83ca734da794?q=80&w=2000'); /* High-res library image */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* Parallax effect for desktop */
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)); /* Darkens image for text readability */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.hero-content {
+  max-width: 800px;
+  color: #fff;
+}
+
+.hero-title {
+  font-size: clamp(2.5rem, 8vw, 4rem); /* Responsive font size */
+  line-height: 1.1;
+  margin-bottom: 20px;
+  font-weight: 800;
+}
+
+.hero-title span {
+  color: #25D366; /* WhatsApp Green */
+}
+
+.hero-subtitle {
+  font-size: clamp(1rem, 3vw, 1.25rem);
+  margin-bottom: 30px;
+  opacity: 0.9;
+}
+
+.btn-primary {
+  display: inline-block;
+  padding: 15px 30px;
+  background-color: #25D366;
+  color: white;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: bold;
+  margin: 10px;
+  transition: 0.3s;
+}
+
+.btn-secondary {
+  display: inline-block;
+  padding: 15px 30px;
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: bold;
+  margin: 10px;
+  transition: 0.3s;
+}
+
+.btn-primary:hover { background-color: #128C7E; transform: scale(1.05); }
+.btn-secondary:hover { background-color: white; color: black; }
+
+/* Responsive fix for small phones */
+@media (max-width: 600px) {
+  .hero-section { height: 60vh; background-attachment: scroll; }
+  .hero-btns { display: flex; flex-direction: column; }
+}
