@@ -48,48 +48,10 @@ let ArrProducts = [
 
 
 
-const searchInput = document.querySelector('.search-input');
-const productsContainer = document.querySelector('.products'); // Change this to your actual list class
 
-// 1. Function to Display Products
-function displayProducts(products) {
-  // Clear the current list
-  productsContainer.innerHTML = "";
-
-  // If no products found
-  if (products.length === 0) {
-    productsContainer.innerHTML = `<p style="text-align:center; color:#6F4E37;">No books found matching that search. 📚</p>`;
-    return;
-  }
-
-  // Map through filtered products and inject HTML
-  products.forEach(product => {
-    productsContainer.innerHTML = `
-        <img src = "images/${item.image}"/>
-        <div class="name">${item.name}</div>
-        <div>${star}</div>
-        <div class="price">${item.price} <small>💲</small></div>
-        <button onClick="addtoCart(${key})"><i class="fa fa-cart-plus"></i>Add to Cart</button>
-        `;
-        products.appendChild(productsContainer)
-  });
-}
-
-// 2. Search Event Listener
-searchInput.addEventListener('input', (e) => {
-  const value = e.target.value.toLowerCase(); // Get user input
   
-  // Filter the ArrProducts array
-  const filteredProducts = ArrProducts.filter(product => {
-    return product.name.toLowerCase().includes(value);
-  });
 
-  // Re-display only the filtered products
-  displayProducts(filteredProducts);
-});
 
-// Initial display on page load
-displayProducts(ArrProducts);
 
 
 
@@ -140,29 +102,56 @@ closeCart.onclick=()=>{
 checkk.addEventListener("click",()=>{
   window.open("checkout.html", "_self")
 })
-function onInIt(){
-    ArrProducts.forEach((item,key)=>{
-        let div = document.createElement("div")
-        div.classList.add("item")
+// 1. Target your search input and product container
+const searchInput = document.querySelector('.search-input'); // Your fancy search bar class
+const products = document.querySelector('.products'); // The container where items go
+
+// 2. The Display Function (Re-written for Search)
+function displayProducts(itemsToDisplay) {
+    // Clear the current products first
+    products.innerHTML = "";
+
+    // Loop through the provided array (either the full one or the filtered one)
+    itemsToDisplay.forEach((item, key) => {
+        let div = document.createElement("div");
+        div.classList.add("item");
 
         let star = "";
-
-        for (i = 0; i < item.rating; i++) {
-          star += `<i class="fa fa-star"></i>`
+        for (let i = 0; i < item.rating; i++) {
+            star += `<i class="fa fa-star"></i>`;
         }
 
-
         div.innerHTML = `
-        <img src = "images/${item.image}"/>
-        <div class="name">${item.name}</div>
-        <div>${star}</div>
-        <div class="price">${item.price} <small>💲</small></div>
-        <button onClick="addtoCart(${key})"><i class="fa fa-cart-plus"></i>Add to Cart</button>
+            <img src="images/${item.image}"/>
+            <div class="name">${item.name}</div>
+            <div>${star}</div>
+            <div class="price">${item.price} <small>💲</small></div>
+            <button onClick="addtoCart(${key})"><i class="fa fa-cart-plus"></i>Add to Cart</button>
         `;
-        products.appendChild(div)
-    })
+        products.appendChild(div);
+    });
 }
-onInIt()
+
+// 3. The Search Event Listener
+searchInput.addEventListener('input', (e) => {
+    const searchTerm = e.target.value.toLowerCase();
+    
+    // Filter the main ArrProducts array based on the name
+    const filtered = ArrProducts.filter(item => {
+        return item.name.toLowerCase().includes(searchTerm);
+    });
+
+    // Run the display function with only the filtered items
+    displayProducts(filtered);
+});
+
+// 4. Update your onInIt to call the new function
+function onInIt() {
+    displayProducts(ArrProducts);
+}
+
+// Start the app
+onInIt();
 
 
 function addtoCart(Id){
