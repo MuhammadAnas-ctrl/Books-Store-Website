@@ -892,7 +892,8 @@ footer h2{
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 0 20px;
+  padding: 0 10px;
+    border-radius:4px;
 }
 
 .hero-content {
