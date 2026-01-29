@@ -161,19 +161,18 @@ img{
   position: fixed;
   inset: 0;
   background: rgba(0,0,0,0.4);
-  z-index: 9999;
   display: none;
 }
 
 .cartOverlay.active {
   display: flex;
-  justify-content: flex-end;
+  
 }
 
 .cartContent {
   background: #fff;
   width: 100%;
-  max-width: 420px;
+  
   height: 100vh;
     color: black;
   display: flex;
