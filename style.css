@@ -874,7 +874,7 @@ footer h2{
 .hero-section {
   position: relative;
   width: 100%;
-  height: 92vh; /* Covers 80% of the screen height */
+  height: 81vh; /* Covers 80% of the screen height */
   background-image: url('https://images.unsplash.com/photo-1512820790803-83ca734da794?q=80&w=2000'); /* High-res library image */
   background-size: cover;
   background-position: center;
